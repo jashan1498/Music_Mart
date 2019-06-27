@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.wanderingcan.persistentsearch.PersistentSearchView
+                    android:id="@+id/persistent_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="top"
+                    android:layout_margin="0dp"
+                    app:endSrc="@drawable/endsrc"
+                    app:hint="Search Music "
+                    app:hintAlwaysActive="true"
+                    app:navSrc="@drawable/ic_menu_black_24dp"
+                    app:showMenu="true" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/fragment"
+                android:name="com.company.jashan.music_mart.home_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="60dp"
+                android:background="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/drawerlayout" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <android.support.design.widget.CoordinatorLayout
+                        android:id="@+id/coordinatorLayout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fitsSystemWindows="false"
+                        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout2"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <include layout="@layout/bottom_sheet" />
+
+                    </android.support.design.widget.CoordinatorLayout>
+
+                    <android.support.design.widget.CoordinatorLayout
+                        android:id="@+id/coordinatorLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_gravity="bottom"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <android.support.design.widget.BottomNavigationView
+                            android:id="@+id/bottom_navigation"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:itemIconSize="25dp"
+                            app:itemIconTint="@color/colorPrimary"
+                            app:itemTextColor="@color/colorPrimary"
+                            app:menu="@menu/bottom_menu">
+
+                        </android.support.design.widget.BottomNavigationView>
+
+
+                    </android.support.design.widget.CoordinatorLayout>
+                </LinearLayout>
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </FrameLayout>
+
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:itemIconTint="@color/colorPrimary"
+            android:background="@color/dark_grey"
+            app:headerLayout="@layout/navigation_header"
+            app:menu="@menu/navigation_menu" />
+    </android.support.v4.widget.DrawerLayout>
+
+</android.support.constraint.ConstraintLayout>
